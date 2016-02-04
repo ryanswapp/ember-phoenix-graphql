@@ -20,7 +20,11 @@ defmodule EmberPhoenixGraphql.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", EmberPhoenixGraphql do
-  #   pipe_through :api
-  # end
+  scope "/api" do
+    pipe_through :api
+
+    forward "/post", GraphQL.Plug, schema: {PostSchema, :schema}
+    # forward "/post", EmberPhoenixGraphql.PostController, :index
+    resources "/posts", EmberPhoenixGraphql.PostController, except: [:new, :edit]
+  end
 end

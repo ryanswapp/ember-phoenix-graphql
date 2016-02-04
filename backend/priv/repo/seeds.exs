@@ -9,3 +9,12 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias EmberPhoenixGraphql.Post
+alias EmberPhoenixGraphql.Repo
+
+Faker.start()
+
+for _ <- 1..10 do
+  changeset = Post.changeset(%Post{}, %{title: Faker.Commerce.product_name, content: Faker.Lorem.sentence, author: Faker.Name.name})
+  Repo.insert!(changeset)
+end

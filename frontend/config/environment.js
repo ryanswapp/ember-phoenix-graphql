@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-phoenix-graphql',
     environment: environment,
+    contentSecurityPolicy: {'font-src': '*', 'style-src': '*'},
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -25,6 +26,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentSecurityPolicy['connect-src'] = "'self' localhost:49152 ws://localhost:4000 http://localhost:4000";
+    ENV.apiHost = 'http://localhost:4000';
+    ENV.apiSocketHost = 'ws://localhost:4000';
   }
 
   if (environment === 'test') {

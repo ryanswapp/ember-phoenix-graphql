@@ -35,5 +35,12 @@ defmodule EmberPhoenixGraphql.Endpoint do
     key: "_ember_phoenix_graphql_key",
     signing_salt: "Z9MQxCT3"
 
+  cors_host =
+    case Mix.env do
+      :prod -> "https://###FILL-IN###.herokuapp.com"
+      _ -> "http://localhost:4200"
+    end
+
+  plug CORSPlug, [origin: cors_host]
   plug EmberPhoenixGraphql.Router
 end
