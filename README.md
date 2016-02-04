@@ -42,4 +42,4 @@ If you'd like to play with the GraphQL server navigate to ```http://localhost:40
   }
 }
 ```
-Pretty cool huh? If you'd like to learn more about GraphQL I recommend you check out this (excellent guide)[https://learngraphql.com/].
+Pretty cool huh? If you'd like to learn more about GraphQL I recommend you check out this [excellent guide](https://learngraphql.com/).
